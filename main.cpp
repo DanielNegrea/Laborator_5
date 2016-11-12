@@ -2,27 +2,29 @@
 
 using namespace std;
 
-void schimba(int a[], int n) {
-   int i;
-   for (i = 0; i < n; i++) {
-      if(a[i] < 0)
-         a[i] = -a[i];
-   }
+int caut (double [], int, double);
+
+int main(){
+    double a[20]; int nr, i;
+    cout << "Numarul de elemente din sirul a (maximum 20) ";
+    cin >> nr;
+    for (i = 0; i < nr; i++) {
+        cout << "a[" << i << "] = ";
+        cin >> a[i];
+    }
+    int rez = caut (a,nr,5);
+    if (rez < 0 )
+       cout << " Valoarea nu a fost gasita" ;
+        else
+        cout << "Valoare gasita se afla pe pozitia: " << rez+1 << endl;
+    return 0;
 }
 
-int minim(int a[], int n) {
-   int i;
-   int m = a[0];
-   for (i = 1; i < n; i++) {
-      if(a[i] < m)
-         m = a[i];
-   }
-   return m;
-}
-int main(){
-    int a[] = {12, -14, 7, 23, 5, -71, 4};
-    schimba(a, 7);   //  In sir sunt 7 elemente
-    int mini = minim(a, 7);
-    cout << "Minimul valorilor dupa schimbarea semnelor este: " << mini << endl;
-    return 0;
+int caut (double a[], int n, double valoare){
+     int i;
+     for (i = 0; i < n; i++){
+            if (a[i] == valoare)
+                return i;
+     }
+     return -1;    // Nu s-a gasit
 }
