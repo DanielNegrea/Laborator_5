@@ -2,29 +2,24 @@
 
 using namespace std;
 
-int caut (double [], int, double);
+void initial (double [], int);    // Prototipul functie apelate
 
 int main(){
-    double a[20]; int nr, i;
-    cout << "Numarul de elemente din sirul a (maximum 20) ";
+    double a[100];
+    int nr, i;
+    cout << "Numarul de elemente (mai mic sau egal cu 100): ";
     cin >> nr;
+    initial (a, nr);
+
     for (i = 0; i < nr; i++) {
-        cout << "a[" << i << "] = ";
-        cin >> a[i];
+        cout << a[i] << ", ";
     }
-    int rez = caut (a,nr,5);
-    if (rez < 0 )
-       cout << " Valoarea nu a fost gasita" ;
-        else
-        cout << "Valoare gasita se afla pe pozitia: " << rez+1 << endl;
+    cout << endl;
     return 0;
 }
-
-int caut (double a[], int n, double valoare){
-     int i;
-     for (i = 0; i < n; i++){
-            if (a[i] == valoare)
-                return i;
-     }
-     return -1;    // Nu s-a gasit
+void initial(double a[], int n)
+{
+   for (int i = 0; i < n; i++) {
+      a[i] = i + 1;
+   }
 }
